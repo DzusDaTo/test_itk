@@ -22,8 +22,8 @@
 ### 1. Клонировать репозиторий
 
 ```
-git clone https://github.com/yourusername/your-repository-name.git
-cd your-repository-name
+git clone https://github.com/DzusDaTo/test_itk.git
+cd itk_project
 ```
 ### 2. Установить зависимости
 ```
