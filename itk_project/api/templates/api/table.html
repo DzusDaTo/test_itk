@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Stations</title>
+    <style>
+        table {
+            margin: 50px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>NE</th>
+            <th>Address</th>
+            <th>Coordinates</th>
+            <th>Technology</th>
+            <th>Status</th>
+        </tr>
+        {% for station in stations %}
+        <tr>
+            <td>{{ station.ne }}</td>
+            <td>{{ station.address }}</td>
+            <td>{{ station.coordinates }}</td>
+            <td>{{ station.technology }}</td>
+            <td>{{ station.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
