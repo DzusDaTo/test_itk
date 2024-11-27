@@ -18,14 +18,14 @@ class UploadFileView(APIView):
 
         try:
             df = pd.read_excel(file)
-            df['technology'] = df['technology'].fillna('')  # Можно заменить на любой дефолт
+            df['technology'] = df['technology'].fillna('')
 
             for _, row in df.iterrows():
                 BaseStation.objects.create(
                     ne=row['ne'],
                     address=row['address'],
                     coordinates=row['coordinates'],
-                    technology=row['technology'],  # Строка, например 'lte, gsm'
+                    technology=row['technology'],
                     status=row['status'],
                 )
 
@@ -33,11 +33,13 @@ class UploadFileView(APIView):
         except Exception as e:
             return Response({"error": str(e)}, status=500)
 
+
 @api_view(['GET'])
 def get_data_json(request):
     stations = BaseStation.objects.all()
     serializer = BaseStationSerializer(stations, many=True)
     return Response(serializer.data)
+
 
 @api_view(['GET'])
 def get_data_html(request):
